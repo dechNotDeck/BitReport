@@ -1,0 +1,42 @@
+name: BitReport
+version: 0.0.1
+main: bitlegend.bitreport.BitReport
+commands:
+    report:
+        description: Reports an issue to the server moderation team
+        usage: /report <problem>
+    rclaim:
+        description: Indicates that you have claimed a ticket
+        usage: /claim <ticket id>
+    rlist:
+        description: Lists open tickets, their UID and some of their data
+        usage: /rlist
+    rinfo:
+        description: Retrieves and displays information on a particular ticket
+        usage: /rinfo <ticket id>
+    resolve:
+        description: Resolves an open ticket that YOU have claimed
+permissions:
+    bitreport.*:
+        description: Gives access to all BitReport features
+        children:
+            bitreport.claim: true
+            bitreport.report: true
+            bitreport.info: true
+            bitreport.list: true
+            bitreport.resolve: true
+    bitreport.claim:
+        description: Allows you to claim reported tickets
+        default: op
+    bitreport.report:
+        description: Allows you to report issues to the server moderation team
+        default: op
+    bitreport.list:
+        description: Allows you to use the rlist command
+        default: op
+    bitreport.info:
+        description: Allows you to view information on a specific ticket
+        default: op
+    bitreport.resolve:
+        description: Allows you to use the resolve command to resolve claimed tickets
+        default: op

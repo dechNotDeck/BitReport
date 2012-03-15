@@ -1,0 +1,26 @@
+Just a copy-paste from a forum thread I made about this
+
+------------------------------
+
+While I'm not ready to share everything that's going on under the hood for this project, I'd like to let you guys know what I started yesterday. I've been thinking of implementing an in-game ticket support system so players can either reports bugs and ask serious questions for the staff to respond to. It keeps it out of the eye of the public and is only readable by the staff.
+
+What this plugin does is allow users to create reports or tickets using the command /report. These reports are stored in a database with such information as a unique id, the username of the user who filed the report, the status of the report (unclaimed, claimed, resolved), the data input for the report that the player includes with it when filing, additional notes and the names of staff members involved (those who have claimed it).
+
+When a player with the permission node "bitreport.claim" logs in, they are presented with a message indicating the number of reports that are currently unclaimed. This staff member can then use the command /rlist to retrieve a listing of all unclaimed reports. This outputs the unique id, username of the player who filed the report and a truncated summary of the report. From here the staff member can either immediately claim the report by using /rclaim or can view further information on it by typing in /rinfo <ticket id>.
+
+Ultimately the staff member can close the report with /resolve <ticket id>.
+
+Permission nodes:
+
+    bitreport.list
+    bitreport.claim
+    bitreport.report
+    bitreport.info
+
+Commands:
+
+    /report
+    /rlist
+    /rinfo
+    /rclaim
+    /resolve
