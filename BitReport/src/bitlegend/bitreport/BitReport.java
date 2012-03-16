@@ -105,6 +105,7 @@ public class BitReport extends JavaPlugin {
 				"`staff` blob," +
 				"`data` text NOT NULL," +
 				"`notes` text," +
+				"`world` text NOT NULL," +
 				"`location` text NOT NULL," +
 				"PRIMARY KEY (`uid`)" +
 				") ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";

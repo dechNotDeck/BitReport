@@ -6,8 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -49,13 +51,15 @@ public class Rtp implements CommandExecutor {
 								"WHERE `uid` = '" + id + "'";
 						ResultSet result = select.executeQuery(query);
 						while (result.next()) {
-							String locraw = result.getString(7);
+							World world = Bukkit.getWorld(result.getString(7));
+							String locraw = result.getString(8);
 							int status = result.getInt(3);
 							String[] locsplit = locraw.split(",");
-							Location loc = new Location(player.getWorld(), 
+							Location loc = new Location(world, 
 									Double.parseDouble(locsplit[0]), 
 									Double.parseDouble(locsplit[1]), 
 									Double.parseDouble(locsplit[2]));
+							
 							if (split.length == 2 && split[1].equals("override") && 
 									player.hasPermission("bitreport.tpoverride") && status == 2){
 								player.teleport(loc);
