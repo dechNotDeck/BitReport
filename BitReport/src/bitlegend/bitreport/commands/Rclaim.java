@@ -54,10 +54,10 @@ public class Rclaim implements CommandExecutor {
 								String username = result.getString(2);
 								String staff = player.getName();
 								
-								String query = "UPDATE `"
-										+ reports
-										+ "` SET `status` = '1' WHERE `uid` = '"
-										+ id + "'";
+								String query = "UPDATE `" + reports
+										+ "` SET `status` = '1', `staff` = '"
+										+ staff + "' WHERE `uid` = '" + id
+										+ "'";
 								Statement update = conn.createStatement();
 								update.executeUpdate(query);
 								

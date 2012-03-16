@@ -48,7 +48,7 @@ public class BitReport extends JavaPlugin {
 		
 		// Register commands
 		getCommand("rclaim").setExecutor(new Rclaim(this));
-		//getCommand("resolve").setExecutor(new Resolve(this));
+		getCommand("resolve").setExecutor(new Resolve(this));
 		getCommand("report").setExecutor(new Report(this));
 		getCommand("rlist").setExecutor(new Rlist(this));
 		getCommand("rinfo").setExecutor(new Rinfo(this));
