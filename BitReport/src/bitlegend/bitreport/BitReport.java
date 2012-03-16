@@ -52,6 +52,7 @@ public class BitReport extends JavaPlugin {
 		getCommand("report").setExecutor(new Report(this));
 		getCommand("rlist").setExecutor(new Rlist(this));
 		getCommand("rinfo").setExecutor(new Rinfo(this));
+		getCommand("rtp").setExecutor(new Rtp(this));
 	}
 	
 	public void logInfo(String data) {
@@ -104,6 +105,7 @@ public class BitReport extends JavaPlugin {
 				"`staff` blob," +
 				"`data` text NOT NULL," +
 				"`notes` text," +
+				"`location` text NOT NULL," +
 				"PRIMARY KEY (`uid`)" +
 				") ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
 

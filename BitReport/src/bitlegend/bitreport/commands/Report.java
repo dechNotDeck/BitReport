@@ -1,5 +1,6 @@
 package bitlegend.bitreport.commands;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -47,19 +48,23 @@ public class Report implements CommandExecutor {
 					data = data.trim();
 
 					try {
+						// Store player location data
+						String location = player.getLocation().getX() + 
+								"," + player.getLocation().getY() + 
+								"," + player.getLocation().getZ();
+						
 						// Create query and prepared statement
-						Connection conn = DriverManager.getConnection(url,
-								user, pass);
-						String query = "INSERT INTO `"
-								+ reports
-								+ "` (`username`, `status`, `data`) VALUES (?,?,?)";
+						Connection conn = DriverManager.getConnection(url, user, pass);
+						String query = "INSERT INTO `" + reports
+								+ "` (`username`, `status`, `data`, `location`) VALUES (?,?,?,?)";
 						PreparedStatement insert = conn.prepareStatement(query);
 
 						// Insert the data into the prepared statement
 						insert.setString(1, player.getName());
 						insert.setInt(2, 0);
 						insert.setString(3, data);
-
+						insert.setString(4, location);
+						
 						// Execute the query
 						insert.executeUpdate();
 
