@@ -9,10 +9,8 @@ import java.sql.Statement;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import bitlegend.bitreport.commands.Report;
-import bitlegend.bitreport.commands.Rinfo;
-import bitlegend.bitreport.commands.Rlist;
-import bitlegend.bitreport.listeners.BRPlayerListener;
+import bitlegend.bitreport.commands.*;
+import bitlegend.bitreport.listeners.*;
 
 public class BitReport extends JavaPlugin {
 	public String enableOnStart = "Enabled On Startup";
@@ -49,7 +47,7 @@ public class BitReport extends JavaPlugin {
 		pm.registerEvents(this.playerListener, this);
 		
 		// Register commands
-		//getCommand("rclaim").setExecutor(new Claim(this));
+		getCommand("rclaim").setExecutor(new Rclaim(this));
 		//getCommand("resolve").setExecutor(new Resolve(this));
 		getCommand("report").setExecutor(new Report(this));
 		getCommand("rlist").setExecutor(new Rlist(this));

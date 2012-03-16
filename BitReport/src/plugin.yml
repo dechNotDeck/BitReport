@@ -7,7 +7,7 @@ commands:
         usage: /report <problem>
     rclaim:
         description: Indicates that you have claimed a ticket
-        usage: /claim <ticket id>
+        usage: /rclaim <ticket id>
     rlist:
         description: Lists open tickets, their UID and some of their data
         usage: /rlist
@@ -16,6 +16,7 @@ commands:
         usage: /rinfo <ticket id>
     resolve:
         description: Resolves an open ticket that YOU have claimed
+        usage: /resolve <ticket id> <notes>
 permissions:
     bitreport.*:
         description: Gives access to all BitReport features
