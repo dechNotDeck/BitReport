@@ -39,7 +39,7 @@ public class Rlist implements CommandExecutor {
 		
 		if (sender instanceof Player) {
 			Player player = (Player)sender;
-			if (player.hasPermission("bitreport.claim")) {
+			if (instance.pex.has(player, "bitreport.claim")) {
 				try {
 					// Create connection, statement and result set with query
 					Connection conn = DriverManager.getConnection(url, user, pass);

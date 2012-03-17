@@ -40,7 +40,7 @@ public class Report implements CommandExecutor {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
 
-			if (player.hasPermission("bitreport.report")) {
+			if (instance.pex.has(player, "bitreport.report")) {
 				if (split.length > 0) {
 					String data = "";
 					for (int i = 0; i < split.length; i++)

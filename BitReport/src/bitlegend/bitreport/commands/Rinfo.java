@@ -39,7 +39,7 @@ public class Rinfo implements CommandExecutor {
 		
 		if (sender instanceof Player) {
 			Player player = (Player)sender;
-			if (player.hasPermission("bitreport.info")) {
+			if (instance.pex.has(player, "bitreport.info")) {
 				if (split.length == 1) {
 					int uid = Integer.parseInt(split[0]);
 					try {

@@ -39,7 +39,7 @@ public class Rclaim implements CommandExecutor {
 		
 		if (sender instanceof Player) {
 			Player player = (Player)sender;
-			if (player.hasPermission("bitreport.claim")) {
+			if (instance.pex.has(player, "bitreport.claim")) {
 				if (split.length == 1) {
 					int id = Integer.parseInt(split[0]);
 					try {

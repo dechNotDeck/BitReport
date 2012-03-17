@@ -38,7 +38,7 @@ public class Resolve implements CommandExecutor {
 		
 		if (sender instanceof Player) {
 			Player player = (Player)sender;
-			if (player.hasPermission("bitreport.resolve")) {
+			if (instance.pex.has(player, "bitreport.resolve")) {
 				if (split.length >= 1) {
 					int id = Integer.parseInt(split[0]);
 					String notes = "";

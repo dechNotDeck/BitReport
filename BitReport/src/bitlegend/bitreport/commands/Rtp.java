@@ -41,7 +41,7 @@ public class Rtp implements CommandExecutor {
 		
 		if (sender instanceof Player) {
 			Player player = (Player)sender;
-			if (player.hasPermission("bitreport.tp")) {
+			if (instance.pex.has(player, "bitreport.tp")) {
 				if (split.length >= 1) {
 					int id = Integer.parseInt(split[0]);
 					try {
@@ -61,16 +61,16 @@ public class Rtp implements CommandExecutor {
 									Double.parseDouble(locsplit[2]));
 							
 							if (split.length == 2 && split[1].equals("override") && 
-									player.hasPermission("bitreport.tpoverride") && status == 2){
+									instance.pex.has(player, "bitreport.tpoverride") && status == 2){
 								player.teleport(loc);
 							}
-							if (status == 2 && player.hasPermission("bitreport.tpoverride") 
+							if (status == 2 && instance.pex.has(player, "bitreport.tpoverride") 
 									&& split.length == 1) {
 								player.sendMessage(ChatColor.YELLOW +
 										"This ticket has already been resolved, to " +
 										"rtp to its location, use /rtp <ticket id> override");
 							}
-							if (status == 2 && !player.hasPermission("bitreport.tpoverride")) {
+							if (status == 2 && !instance.pex.has(player, "bitreport.tpoverride")) {
 								player.sendMessage(ChatColor.YELLOW + 
 										"You do not have permission to use rtp override");
 							}

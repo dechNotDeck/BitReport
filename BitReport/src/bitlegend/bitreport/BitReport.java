@@ -9,6 +9,9 @@ import java.sql.Statement;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import ru.tehkode.permissions.PermissionManager;
+import ru.tehkode.permissions.bukkit.PermissionsEx;
+
 import bitlegend.bitreport.commands.*;
 import bitlegend.bitreport.listeners.*;
 
@@ -16,6 +19,7 @@ public class BitReport extends JavaPlugin {
 	public String enableOnStart = "Enabled On Startup";
 	public boolean enabled;
 	public Config config = new Config(this);
+	public PermissionManager pex;
 	
 	private final BRPlayerListener playerListener = new BRPlayerListener(this);
 	
@@ -28,6 +32,9 @@ public class BitReport extends JavaPlugin {
 	public void onEnable() {
 		// Check the configuration
 		config.checkConfig();
+		
+		// Get permission manager
+		pex = PermissionsEx.getPermissionManager();
 		
 		// Check if config.yml was modified
 		if (!config.readString("DB_Host").equals("hostname")) {
