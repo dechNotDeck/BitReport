@@ -20,6 +20,9 @@ commands:
     rtp:
         description: Used to teleport to the location a report was filed
         usage: /rtp <ticket id> [override]
+    rnext:
+        description: Used to retrieve the /rinfo of the next available ticket
+        usage: /rnext
 permissions:
     bitreport.*:
         description: Gives access to all BitReport features
@@ -31,6 +34,7 @@ permissions:
             bitreport.resolve: true
             bitreport.tp: true
             bitreport.tpoverride: true
+            bitreport.next: true
     bitreport.claim:
         description: Allows you to claim reported tickets
         default: op
@@ -51,4 +55,7 @@ permissions:
         default: op
     bitreport.tpoverride:
         description: Allows you to override the default setting and teleport to a resolved ticket location
+        default: op
+    bitreport.next:
+        description: Allows access to the rnext command
         default: op

@@ -94,6 +94,11 @@ public class Resolve implements CommandExecutor {
 												+ ChatColor.YELLOW
 												+ player.getName());
 								}
+								player.sendMessage(ChatColor.GREEN + "Ticket "
+										+ ChatColor.YELLOW + id
+										+ ChatColor.GREEN + " by "
+										+ ChatColor.YELLOW + username
+										+ " has been resolved");
 							}
 							
 							// Clean up

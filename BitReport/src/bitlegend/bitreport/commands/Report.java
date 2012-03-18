@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -69,6 +71,18 @@ public class Report implements CommandExecutor {
 						
 						// Execute the query
 						insert.executeUpdate();
+						
+						// Get id to send to staff
+						Statement select = conn.createStatement();
+						ResultSet result = select
+								.executeQuery("SELECT * FROM `" + reports
+										+ "` WHERE `data` = '" + data
+										+ "'AND `username` = '"
+										+ player.getName() + "'");
+						int id = 0;
+						while (result.next()) {
+							id = result.getInt(1);
+						}
 
 						// Clean up
 						insert.close();
@@ -77,12 +91,14 @@ public class Report implements CommandExecutor {
 						// Report back to player
 						player.sendMessage(ChatColor.GREEN
 								+ "Your ticket has been submitted and should be handled soon.");
-
+						
 						for (Player p : instance.getServer().getOnlinePlayers()) {
 							if (p.hasPermission("bitreport.claim"))
-								p.sendMessage(ChatColor.RED + "A ticket by "
-										+ player.getName()
-										+ " has just opened.");
+								p.sendMessage(ChatColor.RED + "A new ticket ("
+										+ ChatColor.YELLOW + "#" + id
+										+ ChatColor.RED
+										+ ") has been opened by "
+										+ player.getName());
 						}
 
 						r = true;

@@ -61,6 +61,7 @@ public class BitReport extends JavaPlugin {
 		getCommand("rlist").setExecutor(new Rlist(this));
 		getCommand("rinfo").setExecutor(new Rinfo(this));
 		getCommand("rtp").setExecutor(new Rtp(this));
+		getCommand("rnext").setExecutor(new Rnext(this));
 	}
 	
 	public void logInfo(String data) {
