@@ -41,11 +41,19 @@ public class Rlist implements CommandExecutor {
 			Player player = (Player)sender;
 			if (instance.pex.has(player, "bitreport.claim")) {
 				try {
+					String query = "SELECT * FROM `"
+							+ reports + "` WHERE `status` = '0'";
+					if (split.length == 1) {
+						if (split[0].startsWith("user=")) {
+							String[] usplit = split[0].split("=");
+							query += " AND `username` = '" + usplit[1] + "'";
+						}
+					}
+					
 					// Create connection, statement and result set with query
 					Connection conn = DriverManager.getConnection(url, user, pass);
 					Statement statement = conn.createStatement();
-					ResultSet result = statement.executeQuery("SELECT * FROM `"
-							+ reports + "` WHERE `status` = '0'");
+					ResultSet result = statement.executeQuery(query);
 					// Start the list with a header
 					player.sendMessage(ChatColor.RED + "== Tickets ==");
 					
