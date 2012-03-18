@@ -18,8 +18,9 @@ import bitlegend.bitreport.listeners.*;
 public class BitReport extends JavaPlugin {
 	public String enableOnStart = "Enabled On Startup";
 	public boolean enabled;
-	public Config config = new Config(this);
 	public PermissionManager pex;
+	
+	public Config config = new Config(this);
 	
 	private final BRPlayerListener playerListener = new BRPlayerListener(this);
 	
