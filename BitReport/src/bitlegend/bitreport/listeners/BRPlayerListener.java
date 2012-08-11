@@ -15,6 +15,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import bitlegend.bitreport.BitReport;
 
 public class BRPlayerListener implements Listener {
+	@SuppressWarnings("unused")
 	private BitReport instance;
 	
 	// Database info
