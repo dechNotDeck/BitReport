@@ -3,7 +3,6 @@ version: 1.0.1
 description: An in-game GM/Admin ticket system.
 author: dechiridas
 website: http://www.dechiridas.com/
-database: true
 depend: [PermissionsEx]
 main: bitlegend.bitreport.BitReport
 commands:
